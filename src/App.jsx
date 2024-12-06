@@ -216,14 +216,15 @@ function App() {
             <p>Explore 100% toxin-free and safe skincare products by Radiance that are formulated with love and the goodness of natural ingredients.</p>
             
           </div>
-          <Link to="/pages/allProducts" className='custom-btn-view'>View All</Link>
+          <Link to="/pages/allProducts" className='custom-btn-view-rounded'>View All</Link>
             
         </div>
         <div className='row'>
         {products.filter((item) => item.type === "Skin Care").slice(0,4).map((product, index) => ( 
              
                 <div className='col-md-3' key={index}>
-                <div className='card p-0' style={{height: "100%"}}>
+                <div className='card p-0 shadow-sm hover-zoom' style={{height: "100%"}}>
+                  <Link to={`/allProducts/${product.id}`} className="text-decoration-none text-dark">
                   <img src={product.imageUrl} alt={product.name} className='card-img-top' />
                   <div className='card-body'>
                       <div className='text-center mb-2 fixed-height'><strong>{product.name}</strong></div>
@@ -231,6 +232,8 @@ function App() {
                       <div className='text-center mb-2'><span><i className="bi bi-star-fill"></i></span>{product.rating}</div>
                       <div className='text-center mb-2'>$<strong>{product.price} </strong><span style={{ textDecoration: 'line-through' }}>${(product.price + 26).toFixed(2)}</span></div>
                     </div>
+                  </Link>
+                  
                     <button className='custom-btn-view text-center w-100'>Add To Cart</button>
                 </div>
                 </div>
@@ -247,14 +250,15 @@ function App() {
             <p>Check Out our Radiance 100% toxin-free safe Hair products, formulated with the goodness of natural ingredients and no harmful chemicals.</p>
             
           </div>
-          <Link to="/pages/allProducts" className='custom-btn-view'>View All</Link>
+          <Link to="/pages/allProducts" className='custom-btn-view-rounded'>View All</Link>
             
         </div>
         <div className='row'>
         {products.filter((item) => item.type === "Hair Care").slice(0,4).map((product, index) => (
              
                 <div className='col-md-3' key={index}>
-                <div className='card p-0 h-100'>
+                <div className='card p-0 shadow-sm hover-zoom'>
+                <Link to={`/allProducts/${product.id}`} className="text-decoration-none text-dark">
                   <img src={product.imageUrl} alt="" className='card-img-top' />
                   <div className='card-body'>
                       <div className='text-center mb-2 fixed-height'><strong>{product.name}</strong></div>
@@ -262,6 +266,7 @@ function App() {
                       <div className='text-center mb-2'><span><i className="bi bi-star-fill"></i></span>{product.rating}</div>
                       <div className='text-center mb-2'>$<strong>{product.price} </strong><span style={{ textDecoration: 'line-through' }}>${(product.price + 26).toFixed(2)}</span></div>
                     </div>
+                    </Link>
                     <button className='custom-btn-view text-center w-100'>Add To Cart</button>
                 </div>
                 </div>
@@ -278,14 +283,15 @@ function App() {
             <p>Radiance Perfume range is the Safe Certified perfume and is inspired by both nature and you.</p>
             
           </div>
-          <Link to="/pages/allProducts" className='custom-btn-view'>View All</Link>
+          <Link to="/pages/allProducts" className='custom-btn-view-rounded'>View All</Link>
             
         </div>
         <div className='row'>
         {products.filter((item) => item.type === "Perfume").slice(0,4).map((product, index) => (
              
                 <div className='col-md-3' key={index}>
-                <div className='card p-0 h-100'>
+                <div className='card p-0 shadow-sm hover-zoom'>
+                <Link to={`/allProducts/${product.id}`} className="text-decoration-none text-dark">
                   <img src={product.imageUrl} alt="" className='card-img-top' />
                   <div className='card-body'>
                       <div className='text-center mb-2 fixed-height'><strong>{product.name}</strong></div>
@@ -293,6 +299,7 @@ function App() {
                       <div className='text-center mb-2'><span><i className="bi bi-star-fill"></i></span>{product.rating}</div>
                       <div className='text-center mb-2'>$<strong>{product.price} </strong><span style={{ textDecoration: 'line-through' }}>${(product.price + 26).toFixed(2)}</span></div>
                     </div>
+                    </Link>
                     <button className='custom-btn-view text-center w-100'>Add To Cart</button>
                 </div>
                 </div>

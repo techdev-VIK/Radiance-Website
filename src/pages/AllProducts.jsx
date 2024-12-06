@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { useState } from 'react';
-const products = [
+export const products = [
     // Skin Care
     {
       "id": 1,
@@ -305,7 +305,6 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
 
             </div>
 
-            
 
             <div className="col-md-9">
             
@@ -313,7 +312,7 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
                 <h3>Products Available: {filteredProducts.length}</h3>
 
                 <select className='form-select w-25' onChange={(e) => setSortPrice(e.target.value)}>
-                    <option value="">Sort By Price</option>
+                    <option value="">-- Sort By Price --</option>
                     <option value="High">High to Low</option>
                     <option value="Low">Low to High</option>
                 </select>
@@ -325,7 +324,9 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
             <div className="row">
                 {filterAfterSorting.length>0 ?(filterAfterSorting.map((product) => (
                 <div className="col-lg-4 col-md-4 col-sm-6 mb-4" key={product.id}>
-                    <div className="card p-0" style={{height: "100%"}}>
+                    <div className="card p-0 shadow-sm hover-zoom" style={{height: "100%"}}>
+                    <Link to={`/allProducts/${product.id}`} className="text-decoration-none text-dark">
+                    <div>
                     <img
                         src={product.imageUrl}
                         alt={product.name}
@@ -337,6 +338,9 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
                       <div className='text-center mb-2'><span><i className="bi bi-star-fill"></i></span>{product.rating}</div>
                       <div className='text-center mb-2'>$<strong>{product.price} </strong><span style={{ textDecoration: 'line-through' }}>${(product.price + 26).toFixed(2)}</span></div>
                     </div>
+                    </div>
+                    </Link>
+                    
                     <button className='custom-btn-view text-center w-100'>Add To Cart</button>
                     </div>
                 </div>
@@ -350,4 +354,4 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
   )
 }
 
-export default AllProducts
+export default AllProducts;
