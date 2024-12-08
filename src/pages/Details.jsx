@@ -16,7 +16,7 @@ export default function Details(){
 
     const productData = products?.find((item) => item.id === Number(productId.productId));
 
-    console.log(productData)
+    // console.log(productData)
     
     return(
         <>
@@ -29,7 +29,7 @@ export default function Details(){
             <img
                 src={productData.imageUrl}
                 alt={productData.name}
-                className="img-fluid rounded mt-3"
+                className="img-fluid rounded mt-3 h-75"
             />
             </div>
 
@@ -57,7 +57,7 @@ export default function Details(){
             <div className="col-md-3">
                 <div className="card p-0">
                 <div className="card-body">
-                <div className='mb-2'><sup className="fs-6">$</sup><span className="fs-3">{productData.price * quantity} </span></div>
+                <div className='mb-2'><sup className="fs-6">$</sup><span className="fs-3">{(productData.price * quantity).toFixed(2)} </span></div>
                 <p className="text-success">In Stock</p>
                 <div>
                     Quantity:

@@ -216,7 +216,6 @@ function AllProducts() {
 //   const filteredProducts = category.includes('All')? products : products.filter((product) => category.includes(product.type));
 
 
-
 // Filter for Rating 
  const handleRatingChange = (e) => {
     const selectedRating = parseInt(e.target.value);
@@ -260,7 +259,6 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
               
               <hr />
 
-
               <h5 className='mt-4'>Category</h5>
               <input type="checkbox" id="allProducts" value="All" onChange={categoryHandler} checked={category.includes("All")} /> <label htmlFor="allProducts">All Products</label><br />
               <input type="checkbox" id="skin" value="Skin Care" onChange={categoryHandler} checked={category.includes('Skin Care')}/> <label htmlFor="skin">Skin Care</label> <br />
@@ -302,7 +300,6 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
                 <span>4</span>
                 <span>5</span>
                 </div>
-
             </div>
 
 
@@ -316,7 +313,6 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
                     <option value="High">High to Low</option>
                     <option value="Low">Low to High</option>
                 </select>
-
             </div>
             
 
