@@ -83,7 +83,7 @@ export const products = [
       "price": 19.99,
       "imageUrl": "https://via.placeholder.com/300X200",
       "category": "Hair Serum",
-      "rating": 4.6,
+      "rating": 4.0,
       "inStock": true
     },
     {
@@ -217,10 +217,11 @@ function AllProducts() {
 
 
 // Filter for Rating 
- const handleRatingChange = (e) => {
-    const selectedRating = parseInt(e.target.value);
-    setRating(selectedRating);
- }
+const handleRatingChange = (e) => {
+  const getRating = e.target.value;
+
+  setRating(getRating);
+};
 
 
  // Filtering logic
@@ -252,6 +253,8 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
       <main className='container main-content'>
         <div className='row mt-5'>
             <div className='col-md-3'>
+            <div style={{position: "sticky", top: "30px" }}>
+            
             <div className='d-flex justify-content-between my-2'>
                 <h3>Filters</h3>
                 <button className='btn btn-outline-info btn-sm p-1' style={{fontWeight: 500}} onClick={clearFilters}>Clear All</button>
@@ -280,7 +283,7 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
 
             
 
-              <h5 className="mt-4">Rating</h5>
+              <h5 className="mt-4">Ratings Up to: &nbsp;{rating} <i className="bi bi-star-fill"></i></h5>
                 <input 
                 type="range" 
                 min="0" 
@@ -299,12 +302,13 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
                 <span>3</span>
                 <span>4</span>
                 <span>5</span>
+                
                 </div>
             </div>
-
+            </div>
 
             <div className="col-md-9">
-            
+
             <div className='d-flex justify-content-between my-2'>
                 <h3>Products Available: {filteredProducts.length}</h3>
 
@@ -314,9 +318,9 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
                     <option value="Low">Low to High</option>
                 </select>
             </div>
-            
-
+          
             <hr />
+
             <div className="row">
                 {filterAfterSorting.length>0 ?(filterAfterSorting.map((product) => (
                 <div className="col-lg-4 col-md-4 col-sm-6 mb-4" key={product.id}>

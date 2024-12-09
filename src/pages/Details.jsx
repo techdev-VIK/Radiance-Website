@@ -29,7 +29,8 @@ export default function Details(){
             <img
                 src={productData.imageUrl}
                 alt={productData.name}
-                className="img-fluid rounded mt-3 h-75"
+                className="img-fluid rounded mt-3"
+                style={{position: "sticky", top: "30px"}}
             />
             </div>
 
@@ -55,7 +56,7 @@ export default function Details(){
             </div>
 
             <div className="col-md-3">
-                <div className="card p-0">
+                <div className="card p-0 mt-3" style={{position: "sticky", top: "30px"}}>
                 <div className="card-body">
                 <div className='mb-2'><sup className="fs-6">$</sup><span className="fs-3">{(productData.price * quantity).toFixed(2)} </span></div>
                 <p className="text-success">In Stock</p>
@@ -76,9 +77,6 @@ export default function Details(){
             </div>
             </div>
             </div>
-            
-            
-            
             </div>)}
          </main>
 

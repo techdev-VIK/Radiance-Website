@@ -216,7 +216,7 @@ function App() {
             <p>Explore 100% toxin-free and safe skincare products by Radiance that are formulated with love and the goodness of natural ingredients.</p>
             
           </div>
-          <Link to="/pages/allProducts" className='custom-btn-view-rounded'>View All</Link>
+          <Link to="/pages/allProducts" className='custom-btn-view-rounded text-center'>View All</Link>
             
         </div>
         <div className='row'>
@@ -250,7 +250,7 @@ function App() {
             <p>Check Out our Radiance 100% toxin-free safe Hair products, formulated with the goodness of natural ingredients and no harmful chemicals.</p>
             
           </div>
-          <Link to="/pages/allProducts" className='custom-btn-view-rounded'>View All</Link>
+          <Link to="/pages/allProducts" className='custom-btn-view-rounded text-center'>View All</Link>
             
         </div>
         <div className='row'>
@@ -283,7 +283,7 @@ function App() {
             <p>Radiance Perfume range is the Safe Certified perfume and is inspired by both nature and you.</p>
             
           </div>
-          <Link to="/pages/allProducts" className='custom-btn-view-rounded'>View All</Link>
+          <Link to="/pages/allProducts" className='custom-btn-view-rounded text-center'>View All</Link>
             
         </div>
         <div className='row'>
