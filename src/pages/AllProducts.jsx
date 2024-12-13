@@ -179,6 +179,12 @@ export const products = [
 
 function AllProducts() {
 
+
+  const {data, loading, error} = useFetch('http://localhost:3000/allProducts');
+
+
+  if (error) return <p>Error in loading the data, please try again!</p>
+
  const [category, setCategory] = useState(['All']);
  const [rating, setRating] = useState(5);
  const [price, setPrice] = useState('All');

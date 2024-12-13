@@ -5,11 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import Footer from './components/Footer';
 import image1 from './assets/Image1.jpg';
-import image2 from './assets/Image2.jpg';
 import image3 from './assets/Image3.jpg';
 import image4 from './assets/Image4.jpg';
 import image5 from './assets/Image5.jpg';
 import image6 from './assets/Image6.jpg';
+import useFetch from './useFetch';
 
 
   const products = [
@@ -174,6 +174,15 @@ import image6 from './assets/Image6.jpg';
   
 
 function App() {
+  const {data, loading, error} = useFetch('http://localhost:3000/allProducts');
+
+
+  if (error) return <p>Error in loading the data, please try again!</p>
+
+ 
+  // const filterBySearch = searchQuery ? data?.filter((product) => product.productName.toLowerCase().includes(searchQuery.toLowerCase())) : data;
+
+
 
   return (
     <>

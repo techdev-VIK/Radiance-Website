@@ -9,6 +9,11 @@ import { useState } from "react";
 
 export default function Details(){
 
+    const {data, loading, error} = useFetch('http://localhost:3000/allProducts');
+
+
+  if (error) return <p>Error in loading the data, please try again!</p>
+
     const [quantity, setTotalQuantity] = useState(1)
 
     const productId = useParams();
