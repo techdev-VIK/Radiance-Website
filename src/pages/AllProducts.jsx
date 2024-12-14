@@ -6,182 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { useState } from 'react';
-export const products = [
-    // Skin Care
-    {
-      "id": 1,
-      "type": "Skin Care",
-      "name": "Hydrating Facial Moisturizer",
-      "description": "A lightweight moisturizer that provides 24-hour hydration and improves skin elasticity.",
-      "price": 29.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Moisturizers",
-      "rating": 4.5,
-      "inStock": true
-    },
-    {
-      "id": 2,
-      "type": "Skin Care",
-      "name": "Gentle Foaming Cleanser",
-      "description": "A gentle cleanser that removes dirt, oil, and makeup without stripping the skin's natural moisture.",
-      "price": 19.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Cleansers",
-      "rating": 4.7,
-      "inStock": true
-    },
-    {
-      "id": 3,
-      "type": "Skin Care",
-      "name": "Vitamin C Brightening Serum",
-      "description": "A serum with Vitamin C to reduce dark spots, improve skin texture, and boost radiance.",
-      "price": 39.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Serums",
-      "rating": 4.1,
-      "inStock": true
-    },
-    {
-      "id": 4,
-      "type": "Skin Care",
-      "name": "Soothing Aloe Vera Gel",
-      "description": "A multipurpose gel that soothes irritated skin and provides hydration.",
-      "price": 14.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Gels",
-      "rating": 4.6,
-      "inStock": true
-    },
-    {
-      "id": 5,
-      "type": "Skin Care",
-      "name": "Overnight Repair Cream",
-      "description": "A rich night cream that repairs and nourishes the skin while you sleep.",
-      "price": 49.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Night Care",
-      "rating": 3.9,
-      "inStock": false
-    },
-    {
-      "id": 6,
-      "type": "Skin Care",
-      "name": "SPF 50 Sunscreen Lotion",
-      "description": "A non-greasy sunscreen lotion that protects against harmful UVA and UVB rays.",
-      "price": 24.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Sunscreens",
-      "rating": 4.3,
-      "inStock": true
-    },
-    // Hair Care
-    {
-      "id": 7,
-      "type": "Hair Care",
-      "name": "Argan Oil Hair Serum",
-      "description": "A nourishing serum that smooths frizz, adds shine, and repairs damaged hair.",
-      "price": 19.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Hair Serum",
-      "rating": 4.0,
-      "inStock": true
-    },
-    {
-      "id": 8,
-      "type": "Hair Care",
-      "name": "Deep Conditioning Hair Mask",
-      "description": "A hair mask enriched with keratin for intensive hydration and repair.",
-      "price": 24.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Hair Masks",
-      "rating": 2.7,
-      "inStock": true
-    },
-    {
-      "id": 9,
-      "type": "Hair Care",
-      "name": "Volumizing Conditioner",
-      "description": "A lightweight Conditioner that absorbs oil and adds volume to flat hair.",
-      "price": 24.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Conditioner",
-      "rating": 4.5,
-      "inStock": true
-    },
-    {
-      "id": 10,
-      "type": "Hair Care",
-      "name": "Volumizing Dry Shampoo",
-      "description": "A lightweight dry shampoo that absorbs oil and adds volume to flat hair.",
-      "price": 14.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Dry Shampoo",
-      "rating": 1.1,
-      "inStock": true
-    },
-    // Fragrance Products
-    {
-      "id": 11,
-      "type": "Perfume",
-      "name": "Rose Vanilla Body Mist",
-      "description": "A delicate body mist with notes of rose and vanilla for a refreshing fragrance.",
-      "price": 19.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Body Mists",
-      "rating": 4.6,
-      "inStock": true
-    },
-    {
-      "id": 12,
-      "type": "Perfume",
-      "name": "Lavender & Amber Eau de Parfum",
-      "description": "A luxurious perfume with calming lavender and warm amber notes.",
-      "price": 49.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Perfumes",
-      "rating": 4.8,
-      "inStock": true
-    },
-    {
-      "id": 13,
-      "type": "Perfume",
-      "name": "Citrus Bergamot Cologne",
-      "description": "A vibrant cologne with zesty citrus and bergamot fragrance.",
-      "price": 29.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Colognes",
-      "rating": 4.4,
-      "inStock": true
-    },
-    {
-      "id": 14,
-      "type": "Perfume",
-      "name": "Chocolate Bergamot Perfume",
-      "description": "A vibrant perfume with zesty chocolate and bergamot fragrance.",
-      "price": 39.99,
-      "imageUrl": "https://via.placeholder.com/300X200",
-      "category": "Perfume",
-      "rating": 2.2,
-      "inStock": true
-    },
-    {
-        "id": 15,
-        "type": "Perfume",
-        "name": "Men's Clay Perfume",
-        "description": "A vibrant perfume with magnificent clay fragrance.",
-        "price": 39.99,
-        "imageUrl": "https://via.placeholder.com/300X200",
-        "category": "Perfumes",
-        "rating": 3.5,
-        "inStock": true
-      }
-  ];
+import useFetch from '../useFetch';
 
 function AllProducts() {
 
 
   const {data, loading, error} = useFetch('http://localhost:3000/allProducts');
-
+  console.log(data);
 
   if (error) return <p>Error in loading the data, please try again!</p>
 
@@ -231,24 +62,24 @@ const handleRatingChange = (e) => {
 
 
  // Filtering logic
-const filteredProducts = products
-.filter((product) => (category.includes('All') || category.includes(product.type) ? true : category.includes(product.type)))  // Category filter
-.filter((product) => product.rating <= rating)  // Rating filter
-.sort((a,b) => b.rating - a.rating)
+const filteredProducts = data?.filter((product) => (category.includes('All') || category.includes(product.productType) ? true : category.includes(product.productType)))  // Category filter
+.filter((product) => product.productRating <= rating)  // Rating filter
+.sort((a,b) => b.productRating - a.productRating)
 .filter((product) => {
   if (price === 'All') return true;
-  if (price === 'Less than $15') return product.price < 15;
-  if (price === 'Between $16 to $49') return product.price >= 15 && product.price <= 49;
-  if (price === 'Between $50 to $99') return product.price >= 50 && product.price <= 99;
-  return product.price >= 100;
+  if (price === 'Less than 999') return product.productMRP < 999;
+  if (price === 'Between 1000 to 1999') return product.productMRP >= 1000 && product.productMRP <= 1999;
+  if (price === 'Between 2000 to 2999') return product.productMRP >= 2000 && product.productMRP <= 2999;
+  return product.productMRP >= 3000;
 });  // Price filter
+
 
 
 const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sort((a,b) => {
     if(sortOption === "High"){
-        return (b.price - a.price);
+        return (b.productMRP - a.productMRP);
     }else{
-        return (a.price - b.price);
+        return (a.productMRP - b.productMRP);
     }
 })
 
@@ -279,13 +110,13 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
               <h5 className='mt-4'>Price</h5>
               <input type="radio" name="productPrice" id="allPrices" value="All" onChange={(e) => setPrice(e.target.value)} checked={price == "All"}/> <label htmlFor="allPrices">All Prices</label> <br />
 
-              <input type="radio" name="productPrice" id="lessThan15" value="Less than $15" onChange={(e) => setPrice(e.target.value)} checked={price=="Less than $15"}/> <label htmlFor="lessThan15">Less than $15</label> <br />
+              <input type="radio" name="productPrice" id="lessThan999" value="Less than 999" onChange={(e) => setPrice(e.target.value)} checked={price=="Less than 999"}/> <label htmlFor="lessThan999">Less than 999</label> <br />
 
-              <input type="radio" name="productPrice" id="between16To49" value="Between $16 to $49" onChange={(e) => setPrice(e.target.value)} checked={price == "Between $16 to $49"}/> <label htmlFor="between16To49">Between $16 to $49</label><br />
+              <input type="radio" name="productPrice" id="between1000to1999" value="Between 1000 to 1999" onChange={(e) => setPrice(e.target.value)} checked={price == "Between 1000 to 1999"}/> <label htmlFor="between1000to1999">Between 1000 to 1999</label><br />
 
-              <input type="radio" name="productPrice" id="between50To99" value="Between $50 to $99" onChange={(e) => setPrice(e.target.value)} checked={price == "Between $50 to $99"}/> <label htmlFor="between50To99">Between $50 to $99</label> <br />
+              <input type="radio" name="productPrice" id="between2000to2999" value="Between 2000 to 2999" onChange={(e) => setPrice(e.target.value)} checked={price == "Between 2000 to 2999"}/> <label htmlFor="between2000to2999">Between 2000 to 2999</label> <br />
 
-              <input type="radio" name="productPrice" id="100AndAbove" value="$100 or Above" onChange={(e) => setPrice(e.target.value)} checked={price == "$100 or Above"}/> <label htmlFor="100AndAbove">$100 or Above</label> <br />
+              <input type="radio" name="productPrice" id="3000AndAbove" value="3000 or Above" onChange={(e) => setPrice(e.target.value)} checked={price == "3000 or Above"}/> <label htmlFor="3000AndAbove">3000 or Above</label> <br />
 
             
 
@@ -316,7 +147,7 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
             <div className="col-md-9">
 
             <div className='d-flex justify-content-between my-2'>
-                <h3>Products Available: {filteredProducts.length}</h3>
+                <h3>Products Available: {filterAfterSorting &&filterAfterSorting.length}</h3>
 
                 <select className='form-select w-25' onChange={(e) => setSortPrice(e.target.value)}>
                     <option value="">-- Sort By Price --</option>
@@ -328,21 +159,21 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
             <hr />
 
             <div className="row">
-                {filterAfterSorting.length>0 ?(filterAfterSorting.map((product) => (
-                <div className="col-lg-4 col-md-4 col-sm-6 mb-4" key={product.id}>
+                {filterAfterSorting && filterAfterSorting.length>0 ?(filterAfterSorting.map((product) => (
+                <div className="col-lg-4 col-md-4 col-sm-6 mb-4" key={product.productId}>
                     <div className="card p-0 shadow-sm hover-zoom" style={{height: "100%"}}>
-                    <Link to={`/allProducts/${product.id}`} className="text-decoration-none text-dark">
+                    <Link to={`/allProducts/${product.productId}`} className="text-decoration-none text-dark">
                     <div>
                     <img
-                        src={product.imageUrl}
-                        alt={product.name}
+                        src={product.productImageUrl}
+                        alt={product.productName}
                         className="card-img-top"
                     />
                      <div className='card-body'>
-                      <div className='text-center mb-2 fixed-height'><strong>{product.name}</strong></div>
-                      <div className='text-center mb-2'>{product.category}</div>
-                      <div className='text-center mb-2'><span><i className="bi bi-star-fill"></i></span>{product.rating}</div>
-                      <div className='text-center mb-2'>$<strong>{product.price} </strong><span style={{ textDecoration: 'line-through' }}>${(product.price + 26).toFixed(2)}</span></div>
+                      <div className='text-center mb-2 fixed-height'><strong>{product.productName}</strong></div>
+                      <div className='text-center mb-2'>{product.productCategory}</div>
+                      <div className='text-center mb-2'><span><i className="bi bi-star-fill"></i></span>{(product.productRating).toFixed(1)}</div>
+                      <div className='text-center mb-2'>₹<strong>{(product.productMRP).toFixed(2)} </strong><span style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
                     </div>
                     </div>
                     </Link>

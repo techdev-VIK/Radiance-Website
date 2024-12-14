@@ -4,8 +4,8 @@ import Footer from "../components/Footer";
 
 import { useParams } from "react-router-dom";
 
-import { products } from "./AllProducts";
 import { useState } from "react";
+import useFetch from "../useFetch";
 
 export default function Details(){
 
@@ -19,9 +19,9 @@ export default function Details(){
     const productId = useParams();
     console.log(productId)
 
-    const productData = products?.find((item) => item.id === Number(productId.productId));
+    const productData = data?.find((item) => item.productId === Number(productId.productId));
 
-    // console.log(productData)
+    console.log(productData)
     
     return(
         <>
@@ -32,30 +32,33 @@ export default function Details(){
             <div className="row mt-5">
             <div className="col-md-3">
             <img
-                src={productData.imageUrl}
-                alt={productData.name}
+                src={productData.productImageUrl}
+                alt={productData.productName}
                 className="img-fluid rounded mt-3"
                 style={{position: "sticky", top: "30px"}}
             />
             </div>
 
             <div className='col-md-6'>
-                <p className='mb-2 fs-2'>{productData.name}, {productData.description}</p>
+                <p className='mb-2 fs-2'>{productData.productName}, {(productData.productDescription).slice(0,-1)
+                }, {productData.
+                    productQuantity
+                    }</p>
                 
                 <hr />
 
-                <div className='mt-3 fs-5'>Category: {productData.category}</div>
+                <div className='mt-3 fs-5'>Category: {productData.productCategory}</div>
 
                 
 
-                <div className='mt-3 fs-6'>Rating: <span><i className="bi bi-star-fill"></i></span>{productData.rating}</div>
+                <div className='mt-3 fs-6'>Rating: <span><i className="bi bi-star-fill"></i></span>{(productData.productRating).toFixed(1)}</div>
                 
 
-                <div className='mt-2'><span className="text-danger">-{(((productData.price + 26) - productData.price)/(productData.price + 26) * 100).toFixed(2)}% </span><sup className="ms-2 fs-6">$</sup><span className="fs-3">{productData.price} </span></div>
+                <div className='mt-2'><span className="text-danger">-{productData.discountPercent}% </span><sup className="ms-2 fs-6">₹</sup><span className="fs-3">{(productData.productMRP).toFixed(2)} </span></div>
 
                 
                 <div className="mt-2">
-                <p>M.R.P. <span style={{ textDecoration: 'line-through' }}>${(productData.price + 26).toFixed(2)}</span></p>
+                <p>M.R.P. <span style={{ textDecoration: 'line-through' }}>₹{Math.floor(productData.productMRP + (productData.productMRP * productData.discountPercent / 100)).toFixed(2)}</span></p>
                 </div>
                 <hr />
             </div>
@@ -63,7 +66,7 @@ export default function Details(){
             <div className="col-md-3">
                 <div className="card p-0 mt-3" style={{position: "sticky", top: "30px"}}>
                 <div className="card-body">
-                <div className='mb-2'><sup className="fs-6">$</sup><span className="fs-3">{(productData.price * quantity).toFixed(2)} </span></div>
+                <div className='mb-2'><sup className="fs-6">₹</sup><span className="fs-3">{(productData.productMRP * quantity).toFixed(2)} </span></div>
                 <p className="text-success">In Stock</p>
                 <div>
                     Quantity:
