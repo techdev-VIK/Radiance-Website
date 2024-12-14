@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import useFetch from './useFetch';
 
 
+
 function App() {
   const {data, loading, error} = useFetch('http://localhost:3000/allProducts');
 
@@ -23,25 +24,34 @@ function App() {
     <>
       <Header />
       
-      <main className='main-content'>
+      <main className='main-content'> 
+
       <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734166463/organic-cosmetic-product-with-dreamy-aesthetic-fresh-background_k1ngnv.jpg" className="d-block w-100 img-fluid" alt="image" />
+        <div className="carousel-inner" style={{height: "32rem", objectFit: "cover"}}>
+
+        <div className="carousel-item active">
+          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734192117/Banner3_eqhdeh.jpg" className="d-block w-100" alt="image" />
           </div>
+
+          <div className="carousel-item ">
+          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734192117/Banner1_f8igxx.jpg" className="d-block w-100" alt="image" />
+          </div>
+
           <div className="carousel-item">
-            <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734157377/aromatic-elements-encircle-cobalt-bottle-with-droplets-accenting-scene_mikoa9.jpg" className="d-block w-100 img-fluid" alt="image" />
+          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/c_crop,ar_16:9/v1734192106/Banner2_wom2mj.jpg" className="d-block w-100" alt="image" />
           </div>
+
           <div className="carousel-item">
-            <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734166472/beauty-cosmetics-product-with-soft-pink-tones_f5hqk7.jpg" className="d-block w-100 img-fluid" alt="image" />
+          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734192115/Banner4_pncyue.jpg" className="d-block w-100" alt="image" />
           </div>
+
+          
           <div className="carousel-item">
-            <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734166466/make-up-concept-with-serum-bottles_pebxsz.jpg" className="d-block w-100 img-fluid" alt="image" />
+          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734192126/Banner5_lhgmm9.jpg" className="d-block w-100" alt="image" />
           </div>
-          <div className="carousel-item">
-            <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734166472/3d-rendering-personal-care-products-fondant-pink-2_waua6u.jpg" className="d-block w-100 img-fluid" alt="image" />
-          </div>
+
         </div>
+
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Previous</span>
@@ -51,6 +61,7 @@ function App() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+
 
       <div className='container py-5'>
         <h3>Our Products</h3>

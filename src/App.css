@@ -34,10 +34,7 @@ input[type="range"] {
   text-decoration: none;
 }
 
-.carousel-inner img {
-  height: 400px; /* Adjust height as needed */
-  object-fit: cover; /* Ensures the image scales without stretching */
-}
+
 
 .rating-slider {
   width: 80%;
