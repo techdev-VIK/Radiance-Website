@@ -1,6 +1,24 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import '../App.css';
+
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function Header(){
+
+
+  const[searchTerm, setSearchTerm] = useState('');
+
+  const navigate = useNavigate();
+
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+
+    navigate(`/pages/allProducts?search=${searchTerm}`)
+  }
+
+
     return (
 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
   <div className="container py-2">
@@ -13,12 +31,13 @@ export default function Header(){
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
     <div className='navbar-nav' style={{width: "70%"}}>
-      <form className="w-75 ms-auto" role="search">
+      <div className="w-75 ms-auto">
         <div className='input-group'>
-        <input className="form-control" type="search" placeholder="Please enter any product you wish to buy..." aria-label="Search" />
-        <button className="custom-btn"  type="submit">Search</button>
+        <input className="form-control" type="search" placeholder="Please enter any product you wish to buy..." aria-label="Search"  value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+
+        <button className="custom-btn-search"  type="submit" onClick={handleSearchSubmit}>Search</button>
         </div>
-      </form>
+      </div>
     </div>
 
     <div className='ms-auto'>

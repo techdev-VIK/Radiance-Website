@@ -5,13 +5,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import Footer from './components/Footer';
 import useFetch from './useFetch';
-
+import { useState } from 'react';
 
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState('');
+
   const {data, loading, error} = useFetch('http://localhost:3000/allProducts');
 
-  console.log(data);
+  // console.log(data);
 
 
   if (error) return <div className="alert alert-danger">Error in loading the data, please try again!</div>
@@ -24,7 +26,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header setSearchQuery={setSearchQuery} />
       
       <main className='main-content'> 
 

@@ -8,13 +8,21 @@ import Footer from '../components/Footer';
 import { useState } from 'react';
 import useFetch from '../useFetch';
 
+import { useLocation } from 'react-router-dom';
+
+import { useEffect } from 'react';
+
 function AllProducts() {
 
 
   const {data, loading, error} = useFetch('http://localhost:3000/allProducts');
   // console.log(data);
 
- 
+ const location = useLocation();
+
+ const searchParams = new URLSearchParams(location.search);
+
+ const searchQuery = searchParams.get('search') || '';
 
  const [category, setCategory] = useState(['All']);
  const [rating, setRating] = useState(5);
@@ -27,6 +35,7 @@ function AllProducts() {
     setRating(5);
     setPrice('All');
     setSortPrice('');
+    navigate('/allProducts');
   }
 
  const categoryHandler = (e) => {
@@ -49,9 +58,6 @@ function AllProducts() {
     }
  }
 
-//   //For categoryHandler
-//   const filteredProducts = category.includes('All')? products : products.filter((product) => category.includes(product.type));
-
 
 // Filter for Rating 
 const handleRatingChange = (e) => {
@@ -61,17 +67,19 @@ const handleRatingChange = (e) => {
 };
 
 
- // Filtering logic
-const filteredProducts = data?.filter((product) => (category.includes('All') || category.includes(product.productType) ? true : category.includes(product.productType)))  // Category filter
-.filter((product) => product.productRating <= rating)  // Rating filter
-.sort((a,b) => b.productRating - a.productRating)
-.filter((product) => {
-  if (price === 'All') return true;
-  if (price === 'Less than 999') return product.productMRP < 999;
-  if (price === 'Between 1000 to 1999') return product.productMRP >= 1000 && product.productMRP <= 1999;
-  if (price === 'Between 2000 to 2999') return product.productMRP >= 2000 && product.productMRP <= 2999;
-  return product.productMRP >= 3000;
-});  // Price filter
+  // Filter based on search query
+  const filteredProducts = data?.filter((product) =>
+    product.productName.toLowerCase().includes(searchQuery.toLowerCase()) // Search filter
+  )
+  .filter((product) => (category.includes('All') || category.includes(product.productType)))
+  .filter((product) => product.productRating <= rating)
+  .filter((product) => {
+    if (price === 'All') return true;
+    if (price === 'Less than 999') return product.productMRP < 999;
+    if (price === 'Between 1000 to 1999') return product.productMRP >= 1000 && product.productMRP <= 1999;
+    if (price === 'Between 2000 to 2999') return product.productMRP >= 2000 && product.productMRP <= 2999;
+    return product.productMRP >= 3000;
+  });
 
 
 
@@ -84,9 +92,9 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
 })
 
 
-if (error) return <div className="alert alert-danger">Error in loading the data, please try again!</div>
+ if (error) return <div className="alert alert-danger">Error in loading the data, please try again!</div>
 
-if (loading) return <div className="alert alert-warning">Loading...</div>
+  if (loading) return <div className="alert alert-warning">Loading...</div>
 
   return (
     <>
@@ -163,7 +171,7 @@ if (loading) return <div className="alert alert-warning">Loading...</div>
             <hr />
 
             <div className="row">
-                {filterAfterSorting &&(filterAfterSorting.map((product) => (
+                {filterAfterSorting && filterAfterSorting.length > 0 ?(filterAfterSorting.map((product) => (
                 <div className="col-lg-4 col-md-4 col-sm-6 mb-4" key={product.productId}>
                     <div className="card p-0 shadow-sm hover-zoom" style={{height: "100%"}}>
                     <Link to={`/allProducts/${product.productId}`} className="text-decoration-none text-dark">
@@ -185,7 +193,7 @@ if (loading) return <div className="alert alert-warning">Loading...</div>
                     <button className='custom-btn-view text-center w-100'>Add To Cart</button>
                     </div>
                 </div>
-                )))}
+                ))): (<div className='alert alert-danger'>No Products Available Currently, Please Check Later...</div>)}
             </div>
             </div>
         </div>

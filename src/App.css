@@ -54,6 +54,17 @@ input[type="range"] {
   border: 2px solid var(--theme-color);
   border-radius: 7px;
   outline: none;
+  text-decoration: none;
+}
+
+
+.custom-btn-search {
+  background-color: var(--theme-color);
+  color: rgb(255, 255, 255);
+  border: 2px solid var(--theme-color);
+  border-radius: 7px;
+  outline: none;
+  text-decoration: none;
 }
 
 .custom-btn-view {
