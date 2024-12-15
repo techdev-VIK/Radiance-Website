@@ -12,9 +12,11 @@ function App() {
   const {data, loading, error} = useFetch('http://localhost:3000/allProducts');
 
   console.log(data);
-  if (error) return <p>Error in loading the data, please try again!</p>
 
-  if (loading) return <p>Loading...</p>
+
+  if (error) return <div className="alert alert-danger">Error in loading the data, please try again!</div>
+
+  if (loading) return <div className="alert alert-warning">Loading...</div>
  
   // const filterBySearch = searchQuery ? data?.filter((product) => product.productName.toLowerCase().includes(searchQuery.toLowerCase())) : data;
 

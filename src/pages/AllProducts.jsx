@@ -12,9 +12,9 @@ function AllProducts() {
 
 
   const {data, loading, error} = useFetch('http://localhost:3000/allProducts');
-  console.log(data);
+  // console.log(data);
 
-  if (error) return <p>Error in loading the data, please try again!</p>
+ 
 
  const [category, setCategory] = useState(['All']);
  const [rating, setRating] = useState(5);
@@ -83,6 +83,10 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
     }
 })
 
+
+if (error) return <div className="alert alert-danger">Error in loading the data, please try again!</div>
+
+if (loading) return <div className="alert alert-warning">Loading...</div>
 
   return (
     <>
@@ -159,7 +163,7 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
             <hr />
 
             <div className="row">
-                {filterAfterSorting && filterAfterSorting.length>0 ?(filterAfterSorting.map((product) => (
+                {filterAfterSorting &&(filterAfterSorting.map((product) => (
                 <div className="col-lg-4 col-md-4 col-sm-6 mb-4" key={product.productId}>
                     <div className="card p-0 shadow-sm hover-zoom" style={{height: "100%"}}>
                     <Link to={`/allProducts/${product.productId}`} className="text-decoration-none text-dark">
@@ -181,7 +185,7 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
                     <button className='custom-btn-view text-center w-100'>Add To Cart</button>
                     </div>
                 </div>
-                ))): <div className='alert alert-info'>Sorry, No products available in stock currently. Please check again later...</div>}
+                )))}
             </div>
             </div>
         </div>
