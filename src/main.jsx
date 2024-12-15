@@ -6,6 +6,10 @@ import AllProducts from './pages/AllProducts.jsx';
 import Details from './pages/Details.jsx';
 import Favorites from './pages/Favorites.jsx';
 
+import Cart from './pages/Cart.jsx';
+
+import Login from './pages/Login.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -19,6 +23,14 @@ const router = createBrowserRouter([
   {
     path: "/pages/favorites",
     element: <Favorites />
+  },
+  {
+    path: "/pages/cart",
+    element: <Cart />
+  },
+  {
+    path: "/pages/login",
+    element: <Login />
   },
   {
     path: "/allProducts/:productId",

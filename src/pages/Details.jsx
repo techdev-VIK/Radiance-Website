@@ -64,6 +64,7 @@ export default function Details(){
                 <div className="mt-2">
                 <p>M.R.P. <span style={{ textDecoration: 'line-through' }}>₹{Math.floor(productData.productMRP + (productData.productMRP * productData.discountPercent / 100)).toFixed(2)}</span></p>
                 </div>
+                
                 <hr />
 
             <div className="d-flex justify-content-around align-items-around">
