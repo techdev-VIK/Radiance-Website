@@ -9,7 +9,6 @@ import { useState } from 'react';
 
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState('');
 
   const {data, loading, error} = useFetch('http://localhost:3000/allProducts');
 
@@ -26,32 +25,32 @@ function App() {
 
   return (
     <>
-      <Header setSearchQuery={setSearchQuery} />
+      <Header />
       
       <main className='main-content'> 
 
-      <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-        <div className="carousel-inner" style={{height: "32rem", objectFit: "cover"}}>
+      <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000"  >
+        <div className="carousel-inner" style={{maxHeight: "500px", objectFit: "cover"}}>
 
-        <div className="carousel-item active">
-          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734192117/Banner3_eqhdeh.jpg" className="d-block w-100" alt="image" />
+        <div className="carousel-item active" >
+          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734192117/Banner3_eqhdeh.jpg" className="d-block w-100 h-25" alt="image" />
           </div>
 
           <div className="carousel-item ">
-          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734192117/Banner1_f8igxx.jpg" className="d-block w-100" alt="image" />
+          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734192117/Banner1_f8igxx.jpg" className="d-block w-100 h-25" alt="image" />
           </div>
 
           <div className="carousel-item">
-          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/c_crop,ar_16:9/v1734192106/Banner2_wom2mj.jpg" className="d-block w-100" alt="image" />
+          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/c_crop,ar_16:9/v1734192106/Banner2_wom2mj.jpg" className="d-block w-100 h-25" alt="image" />
           </div>
 
           <div className="carousel-item">
-          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734192115/Banner4_pncyue.jpg" className="d-block w-100" alt="image" />
+          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734192115/Banner4_pncyue.jpg" className="d-block w-100 h-25" alt="image" />
           </div>
 
           
           <div className="carousel-item">
-          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734192126/Banner5_lhgmm9.jpg" className="d-block w-100" alt="image" />
+          <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734192126/Banner5_lhgmm9.jpg" className="d-block w-100 h-25" alt="image" />
           </div>
 
         </div>
@@ -67,7 +66,7 @@ function App() {
       </div>
 
 
-      <div className='container py-5'>
+      <div className='container py-4'>
         <h3>Our Products</h3>
         <div className='d-flex justify-content-between align-items-center mt-5'>
           <div>
@@ -79,7 +78,7 @@ function App() {
             
         </div>
         <div className='row'>
-        {data && (data.filter((item) => item.productType === "Skin Care").slice(0,4).map((product, index) => ( 
+        {data && (data.filter((item) => item.productType === "Skin Care").slice(4,8).map((product, index) => ( 
              
                 <div className='col-md-3' key={index}>
                 <div className='card p-0 shadow-sm hover-zoom' style={{height: "100%"}}>

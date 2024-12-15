@@ -1,7 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import '../App.css';
 
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 export default function Header(){
@@ -15,7 +14,10 @@ export default function Header(){
   const handleSearchSubmit = (e) => {
     e.preventDefault();
 
-    navigate(`/pages/allProducts?search=${searchTerm}`)
+    if(searchTerm !== ''){
+      navigate(`/pages/allProducts?search=${searchTerm}`)
+    }
+    
   }
 
 
@@ -31,31 +33,31 @@ export default function Header(){
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
     <div className='navbar-nav' style={{width: "70%"}}>
-      <div className="w-75 ms-auto">
+      <form className="w-75 ms-auto" onClick={handleSearchSubmit}>
         <div className='input-group'>
-        <input className="form-control" type="search" placeholder="Please enter any product you wish to buy..." aria-label="Search"  value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+        <input className="form-control" type="search" placeholder="Please enter any product you wish to buy..." aria-label="Search" required  value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
 
-        <button className="custom-btn-search"  type="submit" onClick={handleSearchSubmit}>Search</button>
+        <button className="custom-btn-search"  type="submit" >Search</button>
         </div>
-      </div>
+      </form>
     </div>
 
     <div className='ms-auto'>
          <ul className="navbar-nav">
-            <li className="nav-item"><NavLink className="nav-link" to="/favorites">
+            <li className="nav-item"><NavLink className="nav-link" to="/pages/favorites">
                 <span className="bi bi-heart" style={{ fontSize: '1.1rem', color: "#00AFEF" }}><span className="ms-2">Favs</span></span>
                 </NavLink>
             </li>
            
             <li className="nav-item">
-                <NavLink className="nav-link" to="/cart">
+                <NavLink className="nav-link" to="/pages/cart">
                 <span className="bi bi-cart" style={{ fontSize: '1.1rem', color: "#00AFEF" }}><span className="ms-2">Cart</span></span>
                 </NavLink>
             </li>
                 
 
             <li className="nav-item">
-                <NavLink className="nav-link" to="/login">
+                <NavLink className="nav-link" to="/pages/login">
                 <span className="bi bi-person" style={{ fontSize: '1.1rem', color: "#00AFEF" }}><span className="ms-2">Login</span></span>
                 </NavLink>
             </li>

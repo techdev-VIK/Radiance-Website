@@ -66,30 +66,30 @@ export default function Details(){
                 </div>
                 <hr />
 
-            <div className="d-flex">
+            <div className="d-flex justify-content-around align-items-around">
 
-                <div className="d-flex align-items-start flex-column me-5">
+                <div className="d-flex flex-column">
                 <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734197948/transaction_jcybsb.png" alt="transaction" style={{width: "70px", height: "70px"}} />
 
                 <p className="text-center" style={{width: "70px", height: "30px"}}>Secure Transaction</p>
                 </div>
 
 
-                <div className="d-flex align-items-start flex-column me-5">
+                <div className="d-flex flex-column">
                 <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734197948/delivery_bcpy6s.png" alt="delivery" style={{width: "70px", height: "70px"}} />
 
                 <p className="text-center" style={{width: "70px", height: "30px"}}>Fast Delivery</p>
                 </div>
 
 
-                <div className="d-flex align-items-start flex-column me-5">
+                <div className="d-flex flex-column">
                 <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734197948/ecommerce_vsilhw.png" alt="return" style={{width: "70px", height: "70px"}} />
 
                 <p className="text-center" style={{width: "70px", height: "30px"}}>Easy Returns</p>
                 </div>
 
 
-                <div className="d-flex align-items-start flex-column me-5">
+                <div className="d-flex flex-column">
                 <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734198915/cash-on-delivery_fgh4aa.png" alt="COD" style={{width: "70px", height: "70px"}} />
 
                 <p className="text-center" style={{width: "70px", height: "30px"}}>COD Available</p>

@@ -10,7 +10,6 @@ import useFetch from '../useFetch';
 
 import { useLocation } from 'react-router-dom';
 
-import { useEffect } from 'react';
 
 function AllProducts() {
 
@@ -28,6 +27,7 @@ function AllProducts() {
  const [rating, setRating] = useState(5);
  const [price, setPrice] = useState('All');
  const [sortOption, setSortPrice] = useState('');
+
  
 
   const clearFilters = () => {
@@ -35,7 +35,6 @@ function AllProducts() {
     setRating(5);
     setPrice('All');
     setSortPrice('');
-    navigate('/allProducts');
   }
 
  const categoryHandler = (e) => {
