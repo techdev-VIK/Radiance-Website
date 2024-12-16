@@ -8,11 +8,13 @@ import Footer from '../components/Footer';
 import useFetch from '../useFetch';
 
 
+import FavsHeart from '../components/FavsHeart';
 
 function Favorites() {
 
   const {data, loading, error} = useFetch('http://localhost:3000/allProducts');
   // console.log(data);
+
 
  if (error) return <div className="alert alert-danger">Error in loading the data, please try again!</div>
 
@@ -36,11 +38,15 @@ function Favorites() {
                     <div className="card p-0 shadow-sm hover-zoom" style={{height: "100%"}}>
                     <Link to={`/allProducts/${product.productId}`} className="text-decoration-none text-dark">
                     <div>
-                    <img
+                    <div>
+                        <img
                         src={product.productImageUrl}
                         alt={product.productName}
                         className="card-img-top"
-                    />
+                         />
+
+                    </div>
+                    
                      <div className='card-body'>
                       <div className='text-center mb-2 fixed-height'><strong>{product.productName}</strong></div>
                       <div className='text-center mb-2'>{product.productCategory}</div>
@@ -49,7 +55,7 @@ function Favorites() {
                     </div>
                     </div>
                     </Link>
-                    
+                    <FavsHeart />
                     <button className='custom-btn-view text-center w-100'>Add To Cart</button>
                     </div>
                 </div>

@@ -9,6 +9,7 @@ import { useState } from 'react';
 import useFetch from '../useFetch';
 
 import { useLocation } from 'react-router-dom';
+import FavsHeart from '../components/FavsHeart';
 
 
 function AllProducts() {
@@ -189,6 +190,8 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
                     </div>
                     </Link>
                     
+                    <FavsHeart />
+
                     <button className='custom-btn-view text-center w-100'>Add To Cart</button>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Footer from './components/Footer';
 import useFetch from './useFetch';
 import { useState } from 'react';
+import FavsHeart from './components/FavsHeart';
 
 
 function App() {
@@ -91,7 +92,7 @@ function App() {
                       <div className='text-center mb-2'>₹<strong>{(product.productMRP).toFixed(2)} </strong><span style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
                     </div>
                   </Link>
-                  
+                  <FavsHeart />
                     <button className='custom-btn-view text-center w-100'>Add To Cart</button>
                 </div>
                 </div>
@@ -125,6 +126,7 @@ function App() {
                       <div className='text-center mb-2'>₹<strong>{(product.productMRP).toFixed(2)} </strong><span style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
                     </div>
                     </Link>
+                    <FavsHeart />
                     <button className='custom-btn-view text-center w-100'>Add To Cart</button>
                 </div>
                 </div>
@@ -158,6 +160,7 @@ function App() {
                       <div className='text-center mb-2'>₹<strong>{(product.productMRP).toFixed(2)} </strong><span style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
                     </div>
                     </Link>
+                    <FavsHeart />
                     <button className='custom-btn-view text-center w-100'>Add To Cart</button>
                 </div>
                 </div>

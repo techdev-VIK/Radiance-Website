@@ -18,6 +18,8 @@ function Login(){
                 <label htmlFor="password">Password:</label>
                 <input type="password" id="password" className="form-control" style={{border: "2px solid #00AFEF"}}/>
             </div>
+
+            <button className='custom-btn-view text-center mt-4'>Sign In</button>
           </div>
         </div>
         </main>

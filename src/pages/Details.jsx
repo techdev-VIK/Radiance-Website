@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 import { useState } from "react";
 import useFetch from "../useFetch";
+import FavsHeart from "../components/FavsHeart";
 
 export default function Details(){
 
@@ -41,6 +42,7 @@ export default function Details(){
                 className="img-fluid rounded mt-3"
                 style={{position: "sticky", top: "30px"}}
             />
+            
             </div>
 
             <div className='col-md-6'>
@@ -64,33 +66,32 @@ export default function Details(){
                 <div className="mt-2">
                 <p>M.R.P. <span style={{ textDecoration: 'line-through' }}>₹{Math.floor(productData.productMRP + (productData.productMRP * productData.discountPercent / 100)).toFixed(2)}</span></p>
                 </div>
-                
                 <hr />
 
-            <div className="d-flex justify-content-around align-items-around">
+            <div className="d-flex justify-content-around">
 
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column mx-4">
                 <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734197948/transaction_jcybsb.png" alt="transaction" style={{width: "70px", height: "70px"}} />
 
                 <p className="text-center" style={{width: "70px", height: "30px"}}>Secure Transaction</p>
                 </div>
 
 
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column mx-4">
                 <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734197948/delivery_bcpy6s.png" alt="delivery" style={{width: "70px", height: "70px"}} />
 
                 <p className="text-center" style={{width: "70px", height: "30px"}}>Fast Delivery</p>
                 </div>
 
 
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column mx-4">
                 <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734197948/ecommerce_vsilhw.png" alt="return" style={{width: "70px", height: "70px"}} />
 
                 <p className="text-center" style={{width: "70px", height: "30px"}}>Easy Returns</p>
                 </div>
 
 
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column mx-4">
                 <img src="https://res.cloudinary.com/dcvvdfif9/image/upload/v1734198915/cash-on-delivery_fgh4aa.png" alt="COD" style={{width: "70px", height: "70px"}} />
 
                 <p className="text-center" style={{width: "70px", height: "30px"}}>COD Available</p>
@@ -198,6 +199,8 @@ export default function Details(){
                       <div className='text-center mb-2'>₹<strong>{(product.productMRP).toFixed(2)} </strong><span style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
                     </div>
                   </Link>
+
+                  <FavsHeart />
                   
                     <button className='custom-btn-view text-center w-100'>Add To Cart</button>
                 </div>
