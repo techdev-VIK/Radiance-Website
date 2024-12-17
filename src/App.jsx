@@ -88,8 +88,8 @@ function App() {
                   <div className='card-body'>
                       <div className='text-center mb-2 fixed-height'><strong>{product.productName}</strong></div>
                       <div className='text-center mb-2'>{product.productCategory}</div>
-                      <div className='text-center mb-2'><span><i className="bi bi-star-fill"></i></span>{(product.productRating).toFixed(1)}</div>
-                      <div className='text-center mb-2'>₹<strong>{(product.productMRP).toFixed(2)} </strong><span style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
+                      <div className='text-center mb-2'><span><i className="bi bi-star-fill text-warning"></i></span>{(product.productRating).toFixed(1)}</div>
+                      <div className='text-center mb-2'><strong className='text-success'>₹{(product.productMRP).toFixed(2)} </strong><span className='text-danger' style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
                     </div>
                   </Link>
                   <FavsHeart />
@@ -122,8 +122,8 @@ function App() {
                   <div className='card-body'>
                       <div className='text-center mb-2 fixed-height'><strong>{product.productName}</strong></div>
                       <div className='text-center mb-2'>{product.productCategory}</div>
-                      <div className='text-center mb-2'><span><i className="bi bi-star-fill"></i></span>{(product.productRating).toFixed(1)}</div>
-                      <div className='text-center mb-2'>₹<strong>{(product.productMRP).toFixed(2)} </strong><span style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
+                      <div className='text-center mb-2'><span><i className="bi bi-star-fill text-warning"></i></span>{(product.productRating).toFixed(1)}</div>
+                      <div className='text-center mb-2'><strong className='text-success'>₹{(product.productMRP).toFixed(2)} </strong><span className='text-danger' style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
                     </div>
                     </Link>
                     <FavsHeart />
@@ -156,8 +156,8 @@ function App() {
                   <div className='card-body'>
                       <div className='text-center mb-2 fixed-height'><strong>{product.productName}</strong></div>
                       <div className='text-center mb-2'>{product.productCategory}</div>
-                      <div className='text-center mb-2'><span><i className="bi bi-star-fill"></i></span>{(product.productRating).toFixed(1)}</div>
-                      <div className='text-center mb-2'>₹<strong>{(product.productMRP).toFixed(2)} </strong><span style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
+                      <div className='text-center mb-2'><span><i className="bi bi-star-fill text-warning"></i></span>{(product.productRating).toFixed(1)}</div>
+                      <div className='text-center mb-2'><strong className='text-success'>₹{(product.productMRP).toFixed(2)} </strong><span className='text-danger' style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
                     </div>
                     </Link>
                     <FavsHeart />

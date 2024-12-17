@@ -53,18 +53,18 @@ export default function Details(){
                 
                 <hr />
 
-                <div className='mt-3 fs-5'>Category: {productData.productCategory}</div>
+                <div className='mt-3 fs-5 fw-3'>Category: {productData.productCategory}</div>
 
                 
 
-                <div className='mt-3 fs-6'>Rating: <span><i className="bi bi-star-fill"></i></span>{(productData.productRating).toFixed(1)}</div>
+                <div className='mt-3 fs-5'>Rating: <span><i className="bi bi-star-fill text-warning"></i></span>{(productData.productRating).toFixed(1)}</div>
                 
 
-                <div className='mt-2'><span className="text-danger">-{productData.discountPercent}% </span><sup className="ms-2 fs-6">₹</sup><span className="fs-3">{(productData.productMRP).toFixed(2)} </span></div>
+                <div className='mt-2'><span className="text-danger fs-6">-{productData.discountPercent}% </span><sup className="ms-2 fs-6">₹</sup><span className="fs-3 text-success">{(productData.productMRP).toFixed(2)} </span></div>
 
                 
-                <div className="mt-2">
-                <p>M.R.P. <span style={{ textDecoration: 'line-through' }}>₹{Math.floor(productData.productMRP + (productData.productMRP * productData.discountPercent / 100)).toFixed(2)}</span></p>
+                <div className="mt-2 fs-5">
+                <p>M.R.P. <span className="text-danger" style={{ textDecoration: 'line-through' }}>₹{Math.floor(productData.productMRP + (productData.productMRP * productData.discountPercent / 100)).toFixed(2)}</span></p>
                 </div>
                 <hr />
 
@@ -195,8 +195,8 @@ export default function Details(){
                   <div className='card-body'>
                       <div className='text-center mb-2 fixed-height'><strong>{product.productName}</strong></div>
                       <div className='text-center mb-2'>{product.productCategory}</div>
-                      <div className='text-center mb-2'><span><i className="bi bi-star-fill"></i></span>{(product.productRating).toFixed(1)}</div>
-                      <div className='text-center mb-2'>₹<strong>{(product.productMRP).toFixed(2)} </strong><span style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
+                      <div className='text-center mb-2'><span><i className="bi bi-star-fill text-warning"></i></span>{(product.productRating).toFixed(1)}</div>
+                      <div className='text-center mb-2'><strong className="text-success">₹{(product.productMRP).toFixed(2)} </strong><span className="text-danger" style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
                     </div>
                   </Link>
 

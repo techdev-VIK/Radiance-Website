@@ -25,7 +25,7 @@ function AllProducts() {
  const searchQuery = searchParams.get('search') || '';
 
  const [category, setCategory] = useState(['All']);
- const [rating, setRating] = useState(5);
+ const [rating, setRating] = useState(1);
  const [price, setPrice] = useState('All');
  const [sortOption, setSortPrice] = useState('');
 
@@ -33,7 +33,7 @@ function AllProducts() {
 
   const clearFilters = () => {
     setCategory(['All']);
-    setRating(5);
+    setRating(1);
     setPrice('All');
     setSortPrice('');
   }
@@ -72,7 +72,7 @@ const handleRatingChange = (e) => {
     product.productName.toLowerCase().includes(searchQuery.toLowerCase()) // Search filter
   )
   .filter((product) => (category.includes('All') || category.includes(product.productType)))
-  .filter((product) => product.productRating <= rating)
+  .filter((product) => product.productRating >= rating)
   .filter((product) => {
     if (price === 'All') return true;
     if (price === 'Less than 999') return product.productMRP < 999;
@@ -132,11 +132,11 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
 
             
 
-              <h5 className="mt-4">Ratings Up to: &nbsp;{rating} <i className="bi bi-star-fill"></i></h5>
+              <h5 className="mt-4"><i className="bi bi-star-fill text-warning"></i>&nbsp;Rated &nbsp;{rating}+</h5>
                 <input 
                 type="range" 
                 min="0" 
-                max="5" 
+                max="4" 
                 step="1" 
                 value={rating} 
                 onChange={handleRatingChange} 
@@ -145,13 +145,11 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
                 {/* <span>{rating}</span> */}
 
                 <div className="rating-div">
-                <span><i className="bi bi-star-fill"></i></span>
+                <span>0</span>
                 <span>1</span>
                 <span>2</span>
                 <span>3</span>
                 <span>4</span>
-                <span>5</span>
-                
                 </div>
             </div>
             </div>
@@ -184,8 +182,8 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
                      <div className='card-body'>
                       <div className='text-center mb-2 fixed-height'><strong>{product.productName}</strong></div>
                       <div className='text-center mb-2'>{product.productCategory}</div>
-                      <div className='text-center mb-2'><span><i className="bi bi-star-fill"></i></span>{(product.productRating).toFixed(1)}</div>
-                      <div className='text-center mb-2'>₹<strong>{(product.productMRP).toFixed(2)} </strong><span style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
+                      <div className='text-center mb-2'><span><i className="bi bi-star-fill text-warning"></i></span>{(product.productRating).toFixed(1)}</div>
+                      <div className='text-center mb-2'><strong className='text-success'>₹{(product.productMRP).toFixed(2)} </strong><span className="text-danger" style={{ textDecoration: 'line-through' }}>₹{Math.floor(product.productMRP + (product.productMRP * product.discountPercent / 100)).toFixed(2)}</span></div>
                     </div>
                     </div>
                     </Link>
@@ -195,7 +193,7 @@ const filterAfterSorting = !sortOption ? filteredProducts : filteredProducts.sor
                     <button className='custom-btn-view text-center w-100'>Add To Cart</button>
                     </div>
                 </div>
-                ))): (<div className='alert alert-danger'>No Products Available Currently, Please Check Later...</div>)}
+                ))): (<div className='alert alert-danger'>Currently, No Products Available. Please Check Later...</div>)}
             </div>
             </div>
         </div>
