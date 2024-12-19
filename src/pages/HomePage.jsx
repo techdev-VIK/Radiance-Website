@@ -9,7 +9,7 @@ import { useState } from 'react';
 import FavsHeart from './components/FavsHeart';
 
 
-function App() {
+function HomePage() {
 
   const {data, loading, error} = useFetch('http://localhost:3000/allProducts');
 
@@ -174,4 +174,4 @@ function App() {
   )
 }
 
-export default App;
+export default HomePage;
