@@ -1,12 +1,9 @@
-import './App.css';
+import '../App.css'
 
-import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-import Footer from './components/Footer';
-import useFetch from './useFetch';
-import { useState } from 'react';
-import FavsHeart from './components/FavsHeart';
+import useFetch from '../useFetch';
+import FavsHeart from '../components/FavsHeart';
 
 
 function HomePage() {
@@ -24,7 +21,6 @@ function HomePage() {
 
   return (
     <>
-      <Header />
       
       <main className='main-content'> 
 
@@ -169,7 +165,7 @@ function HomePage() {
 
         </div>
       </main>
-      <Footer />
+
     </>
   )
 }
